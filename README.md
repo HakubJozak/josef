@@ -18,10 +18,10 @@ prikaz robot.vpred
     robot.vpravo_vbok
     robot.krok
     robot.vlevo_vbok
-  else
+  jinak
     3.krat { robot.krok }
-  end
-end
+  konec
+konec
 
 ```
 
