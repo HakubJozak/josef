@@ -1,0 +1,4 @@
+// Separated from application.scss so that Bootstrap
+// is not recompiled on each request in development.
+@import "bootstrap-sprockets";
+@import "bootstrap";

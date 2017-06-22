@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+
+Dir.chdir('parser') do
+#  system "rake build"
+end
+
+system "cp parser/lib/parser/lexer.rb opal/lib/parser"
