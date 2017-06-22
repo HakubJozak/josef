@@ -1,0 +1,6 @@
+[submodule "opal"]
+	path = opal
+	url = git@github.com:HakubJozak/opal.git
+[submodule "parser"]
+	path = parser
+	url = git@github.com:HakubJozak/parser.git
