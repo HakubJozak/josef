@@ -1,8 +1,8 @@
 # Josef
 
-Josef is an educational programming language for beginners based on Ruby.
+Josef is an educational programming language for beginners based on [Ruby].
 You are guiding a robot through a grid world, learning the basics of
-programming as you go. It runs inside a browser thaks to [Opal].
+programming as you go. It runs inside a browser thanks to [Opal].
 
 Inspired by [Karel] and its many descendants. [Josef is Karel's brother.](https://en.wikipedia.org/wiki/Brothers_%C4%8Capek)
 
@@ -28,18 +28,13 @@ Josef is therefor:
 
 ## Implementation
 
-Josef is a disguised __Ruby__ programming language with localized keywords and 
+Josef is a disguised [Ruby] with localized keywords and 
 DSL build to control the robot. [Opal] - Ruby
 in the browser - is used so that it can live happily on the web.
 
-- Ruby 
-- Opal
-- Ruby on Rails
-- React
-
 ## Development
 
-To run it locally (tested on Ubuntu 16.04):
+To start developing locally (tested on Ubuntu 16.04):
    
     cd web
     bundle install
@@ -49,6 +44,13 @@ To run it locally (tested on Ubuntu 16.04):
 
     # in other terminal
     bin/webpack-dev-server
+    
+Main used technologies are:
+
+- Opal
+- Ruby on Rails
+- React
+- Bootstrap
 
 ## Progress
 
@@ -57,13 +59,17 @@ are yet to come. You are welcome to participate on the project - fork
 it and implement some features like:
 
 - Game: solve some puzzle inside the maze and progress in levels
-- 
+- User management
+- Saving 
 
 
-## The Capek Brothers
+## The Čapek Brothers
+
+Not really related, yet somehow it is:
 
 - https://en.wikipedia.org/wiki/Josef_%C4%8Capek
 - https://en.wikipedia.org/wiki/Karel_%C4%8Capek
 
 [Opal]: https://github.com/opal/opal
-[Karel]: (https://en.wikipedia.org/wiki/Karel_(programming_language))
+[Karel]: https://en.wikipedia.org/wiki/Karel_(programming_language)
+[Ruby]:  https://www.ruby-lang.org/
