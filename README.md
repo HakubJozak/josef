@@ -1,11 +1,10 @@
 # Josef
 
-Josef is an in-browser educational programming language for beginners.
-You are guiding a robot through a grid and learn the basics of programming.
+Josef is an educational programming language for beginners based on Ruby.
+You are guiding a robot through a grid world, learning the basics of
+programming as you go. It runs inside a browser thaks to [Opal].
 
-Inspired by (Karel)[https://en.wikipedia.org/wiki/Karel_(programming_language)]
-and its many descendants. 
-[Josef is Karel's brother](https://en.wikipedia.org/wiki/Brothers_%C4%8Capek)
+Inspired by [Karel] and its many descendants. [Josef is Karel's brother.](https://en.wikipedia.org/wiki/Brothers_%C4%8Capek)
 
 ## Motivation
 
@@ -30,7 +29,7 @@ Josef is therefor:
 ## Implementation
 
 Josef is a disguised __Ruby__ programming language with localized keywords and 
-DSL build to control the robot. (Opal)[https://github.com/opal/opal] - Ruby
+DSL build to control the robot. [Opal] - Ruby
 in the browser - is used so that it can live happily on the web.
 
 - Ruby 
@@ -61,8 +60,10 @@ it and implement some features like:
 - 
 
 
-## The Brothers
+## The Capek Brothers
 
 - https://en.wikipedia.org/wiki/Josef_%C4%8Capek
 - https://en.wikipedia.org/wiki/Karel_%C4%8Capek
 
+[Opal]: https://github.com/opal/opal
+[Karel]: (https://en.wikipedia.org/wiki/Karel_(programming_language))
