@@ -6,23 +6,24 @@ programming as you go. It runs inside a browser thanks to [Opal].
 
 Inspired by [Karel] and its many descendants. [Josef is Karel's brother.](https://en.wikipedia.org/wiki/Brothers_%C4%8Capek)
 
-## Motivation
+## Example
 
-There are many educational programming languages and environments
-but most of them don't skip two basic hurdles that arise
-when teaching programming to kids:
+```
+prikaz robot.vpred
+  pokud robot.vidi_zed?
+    robot.vlevo_vbok
+    robot.krok
+    robot.vpravo_vbok
+    2.krat { robot.krok }
+    robot.vpravo_vbok
+    robot.krok
+    robot.vlevo_vbok
+  else
+    3.krat { robot.krok }
+  end
+end
 
-- __Environment__ - It is hard to setup the programming environment at home.
-
-- __Language__ - You have to speak English to understand the programming languages.
-
-While those things are often overcome when you kids are already
-motivated, it can discourage them before they even try.
-
-Josef is therefor:
-
- - web application - anyone with a browser can immediately start to program
- - localized (only Czech language for now)
+```
 
 ## Implementation
 
@@ -60,6 +61,21 @@ it and implement some features like:
 - User management
 - Saving 
 
+
+## Motivation
+
+There are many educational programming languages and environments
+but most of them don't skip two basic hurdles that arise
+when teaching programming to kids:
+
+- __Environment__ - It is hard to setup the programming environment at home.
+- __Language__ - You have to speak English to understand the programming languages.
+
+While those things are often overcome when you kids are already
+motivated, it can discourage them before they even try. Josef is therefor:
+
+ - a web application - anyone with a browser can immediately start to program
+ - localized (only Czech language for now)
 
 ## The Čapek Brothers
 
