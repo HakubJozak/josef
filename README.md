@@ -28,7 +28,7 @@ end
 ## Implementation
 
 Josef is a disguised [Ruby] with localized keywords and 
-DSL build to control the robot. [Opal] - Ruby
+DSL to control the robot. [Opal] - Ruby
 in the browser - is used so that it can live happily on the web.
 
 ## Development
