@@ -5,7 +5,7 @@ You are guiding a robot through a grid and learn the basics of programming.
 
 Inspired by (Karel)[https://en.wikipedia.org/wiki/Karel_(programming_language)]
 and its many descendants. 
-(Josef is Karel's brother)[https://en.wikipedia.org/wiki/Brothers_%C4%8Capek]
+[Josef is Karel's brother](https://en.wikipedia.org/wiki/Brothers_%C4%8Capek)
 
 ## Motivation
 
