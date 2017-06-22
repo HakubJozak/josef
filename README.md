@@ -12,11 +12,9 @@ There are many educational programming languages and environments
 but most of them don't skip two basic hurdles that arise
 when teaching programming to kids:
 
-a) environment
-  - It is hard to setup the programming environment at home.
+- __Environment__ - It is hard to setup the programming environment at home.
 
-b) language barrier 
-  - You have to speak English.
+- __Language__ - You have to speak English to understand the programming languages.
 
 While those things are often overcome when you kids are already
 motivated, it can discourage them before they even try.
