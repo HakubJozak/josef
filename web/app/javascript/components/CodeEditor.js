@@ -40,7 +40,9 @@ class CodeEditor extends React.Component {
     if (e) { e.preventDefault(); }
 
     try {
-      const wrapped = `Josef::Context.new.instance_eval("${this.state.code}")`
+      // const wrapped =
+      // '`window.context`.instance_eval("`this.state.code`")'
+      var wrapped = `Josef::Context.instance.instance_eval("${this.state.code}")`
       Opal.eval(wrapped);
     } catch (e) {
       console.log(e);

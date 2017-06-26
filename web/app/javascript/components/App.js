@@ -9,6 +9,7 @@ class App extends React.Component {
 
   componentDidMount () {
     Opal.eval(this.props.stdlib);
+    // window.context = Opal.eval('Opal.global.context = Josef::Context.new')
   }
 
   render() {

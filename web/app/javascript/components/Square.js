@@ -7,14 +7,8 @@ class Square extends React.Component {
   }
 
   render () {
-    var value;
-
-    if (this.props.hasRobot) {
-      value = 'X';
-    }
-    
     return <div className='j-grid-square'>
-      {value}
+      {this.props.character}
     </div>
   }
 }

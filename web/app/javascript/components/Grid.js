@@ -20,13 +20,14 @@ class Grid extends React.Component {
     this.state = {
       squares:   squares,
       messages:  [],
-      robot:     { x: 3, y: 4 }
+      // FIXME: get from stdlib.rb
+      robot:     { x: 0, y: 0, direction: 'east' }
     }    
   } 
           
-  step (msg, data) {
+  updateRobot (msg, robot) {
     var updated = new Object( ... this.state );
-    updated.robot = { x: this.state.robot.x + 1, y: this.state.robot.y }
+    updated.robot = robot;
     this.setState(updated);
   }
   
@@ -35,15 +36,27 @@ class Grid extends React.Component {
   }
 
   componentDidMount () {
-    var fnc = () => { this.step() }
-    PubSub.subscribe('robot', fnc)
+    PubSub.subscribe('robot.update',  (msg,r) => this.updateRobot(msg,r) )
   }
 
   renderRow (row,y) {
     const squaresJsx = row.map( (square,x) => {
        const key = `${x}.${y}`
-       const hasRobot = this.state.robot.x == x && this.state.robot.y == y
-       return <Square x={x} y={y} hasRobot={hasRobot} key={key} />;
+       const r   = this.state.robot;
+       const hasRobot = (r.x == x && r.y == y)
+       var character = '';
+       const chars  = {
+         north: '^',
+         south: 'v',
+         east:  '>',
+         west:  '<',          
+       }
+
+      if (hasRobot) {
+        character = chars[r.direction];
+      }
+      
+       return <Square x={x} y={y} character={character} key={key} />;
     });
 
 
