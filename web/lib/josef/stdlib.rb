@@ -33,7 +33,9 @@ module Josef
     end
 
     def vlevo_vbok
-      DIRECTIONS.index_of(@direction)
+      i = DIRECTIONS.find_index(@direction)
+      @direction = DIRECTIONS[i-1]
+      send_update
     end
 
     def krok
@@ -56,7 +58,9 @@ module Josef
 
     def send_update
       %x{
-        PubSub.publish( 'robot.update', { x: #{@x}, y: #{@y}, direction: #{@direction} } );
+        setTimeout(function(){
+          PubSub.publish( 'robot.update', { x: #{@x}, y: #{@y}, direction: #{@direction} } );
+        }, 500);
       }      
     end
   end

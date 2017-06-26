@@ -12,7 +12,9 @@ class HomeController < ApplicationController
      """
 
     @code = """
-      3.times { robot.krok }
+      9.times { robot.krok }
+      3.times { robot.vlevo_vbok }
+      9.times { robot.krok }
     """
 
     path = Rails.root.join('lib/josef/stdlib.rb')
