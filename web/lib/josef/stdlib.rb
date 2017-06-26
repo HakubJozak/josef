@@ -19,7 +19,7 @@ module Josef
 
     def rekni(txt)
       %x{
-        window.josefs_world.say(txt) ;
+        PubSub.publish( 'robot.message', { text: txt } );
       }
     end
 
@@ -29,9 +29,24 @@ module Josef
 
     def krok
       puts 'Krok'
+      %x{
+        PubSub.publish( 'robot', { command: 'step' } );
+      }
     end
-  end  
+  end
+
+  class Context
+    include Josef::Stdlib
+    attr_reader :robot
+    
+    def initialize
+      @robot = ::Josef::Robot.new
+    end
+
+  end
 end
 
-include Josef::Stdlib
-$robot = Josef::Robot.new
+
+Josef::Context.new
+
+

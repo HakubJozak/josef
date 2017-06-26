@@ -9,7 +9,7 @@ class Square extends React.Component {
   render () {
     var value;
 
-    if (this.props.robot) {
+    if (this.props.hasRobot) {
       value = 'X';
     }
     

@@ -1,5 +1,6 @@
 import React from 'react';
 import Square from './Square';
+import Pubsub from 'pubsub-js';
 
 
 class Grid extends React.Component {
@@ -16,27 +17,33 @@ class Grid extends React.Component {
       }
     }
 
-    squares[3][3].robot = true;
-    
     this.state = {
-      squares: squares,
-      messages: []
+      squares:   squares,
+      messages:  [],
+      robot:     { x: 3, y: 4 }
     }    
   } 
           
-
-  componentDidMount () {
-    window.josefs_world = this;
+  step (msg, data) {
+    var updated = new Object( ... this.state );
+    updated.robot = { x: this.state.robot.x + 1, y: this.state.robot.y }
+    this.setState(updated);
   }
-
+  
   say (phrase) {
     this.setState({ message: phrase })
   }
 
+  componentDidMount () {
+    var fnc = () => { this.step() }
+    PubSub.subscribe('robot', fnc)
+  }
+
   renderRow (row,y) {
-    const squaresJsx = row.map(function(square,x) {
+    const squaresJsx = row.map( (square,x) => {
        const key = `${x}.${y}`
-       return <Square x={x} y={y} robot={square.robot} key={key} />;
+       const hasRobot = this.state.robot.x == x && this.state.robot.y == y
+       return <Square x={x} y={y} hasRobot={hasRobot} key={key} />;
     });
 
 
