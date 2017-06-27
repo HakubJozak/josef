@@ -36,7 +36,7 @@ class Grid extends React.Component {
   }
 
   componentDidMount () {
-    // PubSub.subscribe('robot.update',  (msg,r) => this.updateRobot(msg,r) )
+    PubSub.subscribe('robot.update',  (msg,r) => { this.updateRobot(msg,r) } )
   }
 
   renderRow (row,y) {

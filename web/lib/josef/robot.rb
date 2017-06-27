@@ -5,8 +5,8 @@ module Josef
     DIRECTIONS = [ :north, :east, :south, :west ]
 
     MOVES = {
-      north: [  0,  1 ],
-      south: [  0, -1 ],
+      north: [  0, -1 ],
+      south: [  0,  1 ],
       east:  [  1,  0 ],
       west:  [ -1,  0 ]
     }
@@ -17,22 +17,26 @@ module Josef
       @x = 0
       @y = 0
       @direction = :east
+      puts '[robot] Ready'
     end
 
     def rekni(txt)
+      puts '[robot] say'
     end
 
     def poloz
-      puts 'Pokladam'
+      puts '[robot] put'      
     end
 
     def vlevo_vbok
+      puts '[robot] turn_left'
       i = DIRECTIONS.find_index(@direction)
       @direction = DIRECTIONS[i-1]
       send_update
     end
 
     def krok
+      puts '[robot] step'
       delta = MOVES[@direction]
       moved = [ @x + delta[0], @y + delta[1] ]
 
@@ -52,8 +56,8 @@ module Josef
 
     def send_update
       %x{
-        console.info('sending')
-        PubSub.publish('runner.update', { x: #{@x}, y: #{@y}, direction: #{@direction} })
+        PubSub.publish('runner.update', { x: #{@x}, y: #{@y}, direction: #{@direction} });
+
       }
     end
   end

@@ -8,7 +8,7 @@ class App extends React.Component {
     super(props);
     this.runner = new Runner();
   }
-
+  
   componentDidMount () {
     Opal.eval(this.props.boot_rb);
   }

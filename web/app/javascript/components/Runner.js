@@ -1,23 +1,25 @@
+import React from 'react';
+
 class Runner {
-  constructor (app) {
+  constructor (opts) {
     this.delay  = 300;
     this.events = []
-    this.app    = app;
+    // this.app    = opts.app;
 
-    PubSub.subscribe('runner.update',  (msg,r) => this.addEvent(msg,r) );
+    PubSub.subscribe('runner.update',  (msg,data) => {
+      this.events.push(data);
+    } );
 
     this.planNextConsume();
-  }
-
-  addEvent(msg,data) {
-    console.info(msg, data)
-    this.events.pushObject([msg, data]);
+    console.info('Runner is ready');
   }
 
   consumeEvent () {
+    console.info('updating');
+
     if (this.events.length > 0) {
-      var event = events.shift();
-      PubSub.publish('robot.update', event[0], event[1]);
+      var data = this.events.shift();
+      PubSub.publish('robot.update', data);
     }
     
     this.planNextConsume();
@@ -28,6 +30,5 @@ class Runner {
   }
   
 }
-
 
 export default Runner
