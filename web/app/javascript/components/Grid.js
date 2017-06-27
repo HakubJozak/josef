@@ -22,21 +22,21 @@ class Grid extends React.Component {
       messages:  [],
       // FIXME: get from stdlib.rb
       robot:     { x: 0, y: 0, direction: 'east' }
-    }    
-  } 
-          
+    }
+  }
+
   updateRobot (msg, robot) {
     var updated = new Object( ... this.state );
     updated.robot = robot;
     this.setState(updated);
   }
-  
+
   say (phrase) {
     this.setState({ message: phrase })
   }
 
   componentDidMount () {
-    PubSub.subscribe('robot.update',  (msg,r) => this.updateRobot(msg,r) )
+    // PubSub.subscribe('robot.update',  (msg,r) => this.updateRobot(msg,r) )
   }
 
   renderRow (row,y) {
@@ -49,13 +49,13 @@ class Grid extends React.Component {
          north: '^',
          south: 'v',
          east:  '>',
-         west:  '<',          
+         west:  '<',
        }
 
       if (hasRobot) {
         character = chars[r.direction];
       }
-      
+
        return <Square x={x} y={y} character={character} key={key} />;
     });
 
@@ -78,7 +78,7 @@ class Grid extends React.Component {
       </div>
     );
   }
-}  
+}
 
 
 export default Grid

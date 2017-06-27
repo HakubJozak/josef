@@ -52,9 +52,8 @@ module Josef
 
     def send_update
       %x{
-        setTimeout(function(){
-          PubSub.publish( 'robot.update', { x: #{@x}, y: #{@y}, direction: #{@direction} } );
-        }, 500);
+        console.info('sending')
+        PubSub.publish('runner.update', { x: #{@x}, y: #{@y}, direction: #{@direction} })
       }
     end
   end

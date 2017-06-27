@@ -1,15 +1,16 @@
 import React from 'react';
 import CodeEditor from './CodeEditor';
 import Grid       from './Grid';
+import Runner     from './Runner';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.runner = new Runner();
   }
 
   componentDidMount () {
     Opal.eval(this.props.boot_rb);
-    // window.context = Opal.eval('Opal.global.context = Josef::Context.new')
   }
 
   render() {
