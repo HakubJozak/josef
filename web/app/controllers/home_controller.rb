@@ -16,9 +16,18 @@ class HomeController < ApplicationController
       3.times { robot.vlevo_vbok }
       9.times { robot.krok }
     """
-
-    path = Rails.root.join('lib/josef/stdlib.rb')
-    @stdlib = File.new(path).read
   end
+
+  private
+
+  def boot_rb
+    f = %w( stdlib robot context ).inject('') { |full,file|
+      code = Rails.root.join("lib/josef/#{file}.rb").read
+      full.concat(code)
+      full.concat("\n\n")
+    }
+  end
+
+  helper_method :boot_rb
 
 end
