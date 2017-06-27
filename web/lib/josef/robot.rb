@@ -11,7 +11,6 @@ module Josef
       west:  [ -1,  0 ]
     }
 
-
     def initialize
       #  @city = 10.times.map { Array.new(10,0) }
       @x = 0
@@ -42,9 +41,10 @@ module Josef
 
       if in_bounds?(*moved)
         @x, @y = moved
+        send_update
+      else
+        send_error
       end
-
-      send_update
     end
 
     private
@@ -57,8 +57,15 @@ module Josef
     def send_update
       %x{
         PubSub.publish('runner.update', { x: #{@x}, y: #{@y}, direction: #{@direction} });
-
       }
     end
+
+    def send_error
+      %x{
+        console.error('[robot] out of bounds');
+        PubSub.publish('runner.stop');
+      }
+    end
+    
   end
 end
