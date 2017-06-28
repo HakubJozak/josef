@@ -24,26 +24,31 @@ module Josef
     end
 
     def poloz
-      puts '[robot] put'      
+      puts '[robot] put'
     end
 
     def vlevo_vbok
-      puts '[robot] turn_left'
-      i = DIRECTIONS.find_index(@direction)
-      @direction = DIRECTIONS[i-1]
-      send_update
+      send_update do |runner|
+        puts '[robot] turn_left'
+        i = DIRECTIONS.find_index(@direction)
+        @direction = DIRECTIONS[i-1]
+        %x{ { x: #{@x}, y: #{@y}, direction: #{@direction }} }
+      end
     end
 
     def krok
-      puts '[robot] step'
-      delta = MOVES[@direction]
-      moved = [ @x + delta[0], @y + delta[1] ]
+      send_update do |runner|
+        puts "[robot] step - #{@x},#{@y}"
+        delta = MOVES[@direction]
+        moved = [ @x + delta[0], @y + delta[1] ]
 
-      if in_bounds?(*moved)
-        @x, @y = moved
-        send_update
-      else
-        send_error
+        if in_bounds?(*moved)
+          @x, @y = moved
+        else
+          fail '[robot] out of bounds'
+        end
+
+        %x{ { x: #{@x}, y: #{@y}, direction: #{@direction }} }
       end
     end
 
@@ -54,18 +59,19 @@ module Josef
         y >= 0 && y < 10
     end
 
-    def send_update
+    # TODO - replace by direct runner call?
+    def send_update(&block)
       %x{
-        PubSub.publish('runner.update', { x: #{@x}, y: #{@y}, direction: #{@direction} });
+        PubSub.publish('runner.execute', { block: #{block} });
       }
     end
 
-    def send_error
-      %x{
-        console.error('[robot] out of bounds');
-        PubSub.publish('runner.stop');
-      }
-    end
-    
+    # def send_error
+    #   %x{
+    #     console.error('[robot] out of bounds');
+    #     PubSub.publish('runner.stop');
+    #   }
+    # end
+
   end
 end
