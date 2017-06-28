@@ -1,6 +1,6 @@
 module Josef
   class Robot
-    attr_reader :city, :direction
+    attr_reader :x, :y, :direction
 
     DIRECTIONS = [ :north, :east, :south, :west ]
 

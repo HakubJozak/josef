@@ -10,7 +10,9 @@ class Runner {
     PubSub.subscribe('runner',  (msg,data) => {
       switch (msg) {
       case 'runner.update':
-        this.events.push(data);
+        if (this.running) {
+          this.events.push(data);
+        }
         break;
 
       case 'runner.start':
@@ -20,7 +22,7 @@ class Runner {
 
       case 'runner.stop':
         this.stop();
-        break;      
+        break;
     }});
   }
 
@@ -32,16 +34,21 @@ class Runner {
   stop() {
     this.running = false;
     this.event = [];
-    clearTimeout(this.consumeEvent);    
+    clearTimeout(this.consumeEvent);
   }
 
   consumeEvent () {
-    if (this.events.length > 0) {
+    if (this.running && this.events.length > 0) {
       var data = this.events.shift();
       PubSub.publish('robot.update', data);
     }
-    
+
     this.planNext();
+  }
+
+  inBounds (r) {
+    return r.x >= 0 && r.x < 10 &&
+           r.y >= 0 && r.y < 10;
   }
 
   planNext () {
