@@ -17,28 +17,30 @@
  */
 
 .CodeMirror {
-    border: 1px solid red;
+    border: 2px solid green;
 }
 
 
 .j-grid {
-  border: 1px solid red;   
+  $size: 50px; 
+  $border: 2px;
+
+  width:  ($size * 10);
+  height: ($size * 10) + 2 * $border;
+  border: $border solid green;
 
   .j-grid-row{
-      display: flex;
+     display: flex;
   }
   
   .j-grid-square {
     background: #ddd;
     border: 1px solid #999;
     float: left;
-    height: 34px;
-    margin-right: -1px;
-    margin-top: -1px;
     padding: 0;
     text-align: center;
-    width:  50px;
-    height: 50px;    
+    width:  $size;
+    height: $size;   
 
     font-size: 24px;
     font-weight: bold;
