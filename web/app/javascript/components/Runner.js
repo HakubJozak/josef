@@ -1,6 +1,4 @@
-import React from 'react';
-
-class Runner {
+export default class Runner {
   constructor (opts) {
     this.delay   = 300;
     this.events  = []
@@ -74,4 +72,4 @@ class Runner {
 
 }
 
-export default Runner
+

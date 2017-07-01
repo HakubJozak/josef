@@ -72,5 +72,7 @@ $red: red;
     font-size: $font;
     font-weight: bold;
     line-height: $size;
+
+    &:hover { background-color: rgba(42, 137, 13, 0.49); }
   }
 }
