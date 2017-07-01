@@ -1,9 +1,13 @@
 import React from 'react';
 
+
 import CodeEditor from './CodeEditor';
 import Grid       from './Grid';
 import Runner     from './Runner';
 import Console    from './Console';
+
+import Rur from './rur.jpg'
+
 
 class App extends React.Component {
   constructor(props) {
@@ -20,18 +24,22 @@ class App extends React.Component {
       <div className='container-fluid'>
         <br/>
         <div className='row'>
-          <div className='col-md-4'>
+          <div className='col-md-5'>
             <CodeEditor code={this.props.code} />
           </div>
 
-          <div className='col-md-4'>
+          <div className='col-md-3'>
             <Grid/>
           </div>
 
-          <div className='col-md-4'>
+          <div className='col-md-3'>
             <Console/>
-          </div>      
-        </div>
+          </div>
+
+          <div className='col-md-1'>
+            <img src={Rur} />
+          </div>
+      </div>
       </div>
     )
   }
