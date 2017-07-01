@@ -9,7 +9,7 @@ class Runner {
 
     PubSub.subscribe('runner',  (msg,data) => {
       switch (msg) {
-      case 'runner.execute':
+      case 'runner.update':
         if (this.running) {
           this.events.push(data);
         }
@@ -26,11 +26,6 @@ class Runner {
     }});
   }
 
-  error(msg) {
-    console.error(msg);
-    this.stop();
-  }
-
   start() {
     this.running = true;
     this.planNext();
@@ -45,8 +40,7 @@ class Runner {
   consumeEvent () {
     if (this.running && this.events.length > 0) {
       var data = this.events.shift();
-      var robot_data = data.block.call(this);
-      PubSub.publish('robot.update', robot_data);
+      PubSub.publish('robot.update', data);
     }
 
     this.planNext();
@@ -79,9 +73,9 @@ class Runner {
     } catch (e) {
       console.log(e);
       this.stop();
-    }
+    }    
   }
-
+  
 }
 
 export default Runner
