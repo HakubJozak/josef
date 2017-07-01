@@ -39,9 +39,17 @@ class Runner {
 
   consumeEvent () {
     if (this.running && this.events.length > 0) {
-      var data = this.events.shift();
-      var robot_data = data.block.call(this);
-      PubSub.publish('robot.update', robot_data);
+      try {
+        var data = this.events.shift();
+        var robot_data = data.block.call(this);
+        PubSub.publish('robot.update', robot_data);
+      } catch (e) {
+        this.stop();
+        console.log(e);
+        PubSub.publish('message', { level: 'error', text: 'Robot narazil do zdi!'})
+      }
+
+
     }
 
     this.planNext();
@@ -60,15 +68,8 @@ class Runner {
 
 
   execute (code) {
-    try {
-//      Opal.eval("require 'native'");
-//      Opal.eval('Josef::Context.instance.runner = Native::Object.new(`window.runner`)');
-     var wrapped = `Josef::Context.instance.instance_eval("${code}")`
-     Opal.eval(wrapped);
-    } catch (e) {
-      console.log(e);
-      this.stop();
-    }
+    var wrapped = `Josef::Context.instance.instance_eval("${code}")`
+    Opal.eval(wrapped);
   }
 
 }

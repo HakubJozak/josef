@@ -17,18 +17,35 @@
  */
 
 $brown: #8a6d3b;
+$red: red;
 
 .CodeMirror {
   border: 2px solid grey;
   display: flex-box;  
 }
 
-#go-button {
+.btn-primary {
   background-color: $brown;
   margin-top: 1em;
   float: right;    
 }
 
+
+.j-console {
+  border: 1px solid #1a1a1a;
+  background-color: #eee;
+  text-align: left;
+  padding: 1em;
+  color: $brown;
+
+  .j-console-line.error {
+    color: $red;
+  }
+
+  .j-console-line.info {
+    color: $brown;
+  }  
+}
 
 .j-grid {
   $size: 34px; 
