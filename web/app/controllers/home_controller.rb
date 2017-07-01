@@ -12,9 +12,9 @@ class HomeController < ApplicationController
      """
 
     @code = """
-      9.times { robot.krok }
-      3.times { robot.vlevo_vbok }
-      9.times { robot.krok }
+9.krat { robot.krok }
+3.krat { robot.vlevo_vbok }
+9.krat { robot.krok }
     """
   end
 

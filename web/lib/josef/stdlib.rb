@@ -5,3 +5,7 @@ module Josef
     end
   end
 end
+
+class Fixnum
+  alias :krat :times
+end

@@ -16,18 +16,28 @@
  *= require_self
  */
 
+$brown: #8a6d3b;
+
 .CodeMirror {
-    border: 2px solid green;
+  border: 2px solid grey;
+  display: flex-box;  
+}
+
+#go-button {
+  background-color: $brown;
+  margin-top: 1em;
+  float: right;    
 }
 
 
 .j-grid {
-  $size: 50px; 
+  $size: 34px; 
   $border: 2px;
+  $font: 16px;
 
   width:  ($size * 10);
   height: ($size * 10) + 2 * $border;
-  border: $border solid green;
+  border: $border dashed $brown;
 
   .j-grid-row{
      display: flex;
@@ -42,8 +52,8 @@
     width:  $size;
     height: $size;   
 
-    font-size: 24px;
+    font-size: $font;
     font-weight: bold;
-    line-height: 50px;
+    line-height: $size;
   }
 }

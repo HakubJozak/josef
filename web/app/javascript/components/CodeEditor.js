@@ -45,7 +45,7 @@ class CodeEditor extends React.Component {
     return (
       <form onSubmit={this.evalCode}>
         <textarea ref='editor'  defaultValue={this.state.code} />
-        <input type='submit' value='Go!' id="go-button" className='btn btn-primary'/>
+        <input type='submit' value='Spustit!' id="go-button" className='btn btn-primary btn-lg'/>
       </form>
     )
   }

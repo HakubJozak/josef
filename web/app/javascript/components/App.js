@@ -1,14 +1,16 @@
 import React from 'react';
+
 import CodeEditor from './CodeEditor';
 import Grid       from './Grid';
 import Runner     from './Runner';
+import Console    from './Console';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.runner = new Runner();
   }
-  
+
   componentDidMount () {
     Opal.eval(this.props.boot_rb);
   }
@@ -16,16 +18,19 @@ class App extends React.Component {
   render() {
     return (
       <div className='container-fluid'>
-        <h1>Hello Josef</h1>
-
+        <br/>
         <div className='row'>
-          <div className='col-md-6'>
+          <div className='col-md-4'>
             <CodeEditor code={this.props.code} />
           </div>
 
-          <div className='col-md-6'>
-            <Grid />
+          <div className='col-md-4'>
+            <Grid/>
           </div>
+
+          <div className='col-md-4'>
+            <Console/>
+          </div>      
         </div>
       </div>
     )

@@ -9,7 +9,7 @@ class Runner {
 
     PubSub.subscribe('runner',  (msg,data) => {
       switch (msg) {
-      case 'runner.update':
+      case 'runner.execute':
         if (this.running) {
           this.events.push(data);
         }
@@ -40,7 +40,8 @@ class Runner {
   consumeEvent () {
     if (this.running && this.events.length > 0) {
       var data = this.events.shift();
-      PubSub.publish('robot.update', data);
+      var robot_data = data.block.call(this);
+      PubSub.publish('robot.update', robot_data);
     }
 
     this.planNext();
@@ -57,25 +58,19 @@ class Runner {
     }
   }
 
-  hello() {
-    debugger
-    console.info( 'hello from runner');
-  }
 
   execute (code) {
     try {
-      window.runner = this;
-      Opal.eval("require 'native'");
-      Opal.eval('Josef::Context.instance.runner = Native::Object.new(`window.runner`)');
-//      Opal.eval('puts Josef::Context.instance.hello')
-//      var wrapped = `Josef::Context.instance.instance_eval("${code}")`
-//      Opal.eval(wrapped);
+//      Opal.eval("require 'native'");
+//      Opal.eval('Josef::Context.instance.runner = Native::Object.new(`window.runner`)');
+     var wrapped = `Josef::Context.instance.instance_eval("${code}")`
+     Opal.eval(wrapped);
     } catch (e) {
       console.log(e);
       this.stop();
-    }    
+    }
   }
-  
+
 }
 
 export default Runner
