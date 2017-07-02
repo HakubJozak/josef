@@ -4,7 +4,7 @@ Josef is a [Ruby]-based educational programming language for beginners.
 
 You are guiding a robot through a grid world, learning the programming 
 basics along the way. It runs inside a browser thanks to [Opal].
-Inspired by [Karel] and its many descendants. [Josef is Karel's brother].
+Inspired by [Karel] and its many descendants. [Josef is Karel's brother](https://en.wikipedia.org/wiki/Brothers_%C4%8Capek)(https://en.wikipedia.org/wiki/Brothers_%C4%8Capek).
 
 ## Example in Czech
 
@@ -93,6 +93,5 @@ Not really related, yet somehow it is:
 [Opal]: https://github.com/opal/opal
 [Ruby]:  https://www.ruby-lang.org/
 [Karel]: https://en.wikipedia.org/wiki/Karel_(programming_language)
-[Josef is Karel's brother]: https://en.wikipedia.org/wiki/Brothers_%C4%8Capek)(https://en.wikipedia.org/wiki/Brothers_%C4%8Capek
 
 [screenshot]: https://raw.githubusercontent.com/HakubJozak/josef/master/docs/uzka.png
