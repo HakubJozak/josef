@@ -93,4 +93,4 @@ Not really related, yet somehow it is:
 [Karel]: https://en.wikipedia.org/wiki/Karel_(programming_language)
 [Josef is Karel's brother]: https://en.wikipedia.org/wiki/Brothers_%C4%8Capek)(https://en.wikipedia.org/wiki/Brothers_%C4%8Capek
 
-[screenshot]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[screenshot]: https://raw.githubusercontent.com/HakubJozak/josef/master/docs/uzka.png
