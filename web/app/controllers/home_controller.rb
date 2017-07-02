@@ -1,21 +1,17 @@
 class HomeController < ApplicationController
   def index
     @code = """
-      a = 3
-      vypis 'hello!'
+# Cesta kolem sveta za 39 ctvercu
 
-      pokud a > 4
-        robot.rekni 'Ahoj'
-      jinak
-        robot.rekni 'Nashledanou'
-      konec
-     """
+prikaz robot.vpravo_vbok
+  3.krat { vlevo_vbok }
+konec
 
-    @code = """
-9.krat { robot.krok }
-3.krat { robot.vlevo_vbok }
-9.krat { robot.krok }
-    """
+4.krat { 
+  9.krat { robot.krok }
+  robot.vpravo_vbok
+}
+"""
   end
 
   private
