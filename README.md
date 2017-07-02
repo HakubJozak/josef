@@ -37,6 +37,10 @@ the browser.
 
 To start developing locally (tested on Ubuntu 16.04):
    
+1) Clone the repo and run `git submodule update --init`
+
+2) Run the web server
+
     cd web
     bundle install
 
