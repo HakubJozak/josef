@@ -41,14 +41,12 @@ To start developing locally (tested on Ubuntu 16.04):
 
 2) Run the web server
 
-    cd web
-    bundle install
-
-    # run local server
-    rails server
-
-    # in other terminal
-    bin/webpack-dev-server
+```bash
+$ cd web
+$ bundle install
+$ rails server
+$ bin/webpack-dev-server
+```
     
 Main used technologies are:
 
