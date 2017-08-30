@@ -9,12 +9,12 @@ export default class RobotActor  {
     // this.square    = opts.square;
     this.direction = 'east';
     this.name = 'Robot';
-    // PubSub.subscribe('robot.update',  (msg,r) => { this.updatePosition(msg,r) } )
+    PubSub.subscribe('robot.update',  (msg,r) => { this.updatePosition(msg,r) } )
   }
 
-  // updatePosition (msg, r) {
-  //   this.direction = r.direction;
-  // }
+  updatePosition (msg, r) {
+    this.direction = r.direction;
+  }
 
   jsx () {
     const clazz = `${this.direction} robot-actor`;
