@@ -17,7 +17,10 @@ export default class RobotActor  {
   // }
 
   jsx () {
-    return <img src={BotImage} className={this.direction} />
+    const clazz = `${this.direction} robot-actor`;
+
+    //return <img src={BotImage} className={clazz} />
+    return <div className={clazz} ></div>;
   }
   
 }

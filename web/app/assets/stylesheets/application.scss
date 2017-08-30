@@ -76,3 +76,17 @@ $red: red;
     &:hover { background-color: rgba(42, 137, 13, 0.49); }
   }
 }
+
+.robot-actor {
+  width: 32px;
+  height: 32px;      
+  background: image-url('bot.png');
+
+  &.north { background-position-y: -125px;   }
+  &.south { background-position-y:  0px;   }
+  &.west  { background-position-y: -257px; }
+  &.east  { background-position-y: -297px; }  
+
+
+  // &.north { background: image-path('bot.png') 0 0; }
+}
