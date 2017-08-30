@@ -6,7 +6,7 @@ import Grid       from './Grid';
 import Runner     from './Runner';
 import Console    from './Console';
 
-import Rur from './rur.jpg'
+import Rur from './bot.png'
 
 
 class App extends React.Component {

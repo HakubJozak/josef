@@ -37,9 +37,11 @@ the browser.
 
 To start developing locally (tested on Ubuntu 16.04):
    
-1) Clone the repo and run `git submodule update --init`
+1) Install prerequisities: Ruby and [Yarn](https://yarnpkg.com)
 
-2) Run the web server
+2) Clone the repo and run `git submodule update --init`
+
+3) Run the web server
 
 ```bash
 $ cd web
