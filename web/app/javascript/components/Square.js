@@ -7,10 +7,19 @@ class Square extends React.Component {
   }
 
   render () {
+    const thing = this.props.things[0];
+    var name;
+
+    if (thing) {
+      name = thing.name;
+    } else {
+      name = '';
+    }
+
     return <div className='j-grid-square'>
-      {this.props.character}
+      {name}
     </div>
   }
 }
 
-export default Square
+export default Square;

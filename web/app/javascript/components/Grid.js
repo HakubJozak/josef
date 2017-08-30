@@ -1,8 +1,10 @@
 import React from 'react';
 import Square from './Square';
+import RobotActor from './RobotActor';
 import Pubsub from 'pubsub-js';
 
 
+// TODO - rename 'squares' to 'map'
 class Grid extends React.Component {
   constructor (props) {
     super(props)
@@ -13,21 +15,24 @@ class Grid extends React.Component {
       squares[y] = new Array(10);
 
       for (var x =0; x < 10; x++) {
-        squares[y][x] = new Object();
+        squares[y][x] = new Object({ x: x, y: y, things: new Array(0) });
       }
     }
+
+    // FIXME: get from stdlib.rb
+    const robot = new RobotActor({})
+    squares[0][0].things.push(robot);
 
     this.state = {
       squares:   squares,
       messages:  [],
-      // FIXME: get from stdlib.rb
-      robot:     { x: 0, y: 0, direction: 'east' }
     }
   }
 
   updateRobot (msg, robot) {
+    const old = this.state.robot;
     var updated = new Object( ... this.state );
-    updated.robot = robot;
+
     this.setState(updated);
   }
 
@@ -41,22 +46,9 @@ class Grid extends React.Component {
 
   renderRow (row,y) {
     const squaresJsx = row.map( (square,x) => {
-       const key = `${x}.${y}`
-       const r   = this.state.robot;
-       const hasRobot = (r.x == x && r.y == y)
-       var character = '';
-       const chars  = {
-         north: '^',
-         south: 'v',
-         east:  '>',
-         west:  '<',
-       }
-
-      if (hasRobot) {
-        character = chars[r.direction];
-      }
-
-       return <Square x={x} y={y} character={character} key={key} />;
+      const key = `${x}.${y}`
+      const data = this.state.squares[y][x];
+      return <Square x={x} y={y} things={data.things} key={key} />;
     });
 
 

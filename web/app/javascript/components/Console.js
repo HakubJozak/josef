@@ -6,7 +6,7 @@ export default class Console extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lines: [ { level: 'info', text: 'Vítejte v Josefově dole!'} 
+      lines: [ { level: 'info', text: 'Vítejte v Josefově dole!'}
 ]
     }
   }
@@ -20,8 +20,8 @@ export default class Console extends React.Component {
 
   componentDidMount () {
     PubSub.subscribe('message',  (_,msg) => { this.addMessage(msg) } )
-  }  
-  
+  }
+
   render () {
     var divs = this.state.lines.map(function(msg,i) {
       const klass = `${msg.level} j-console-line`
@@ -40,4 +40,3 @@ export default class Console extends React.Component {
     )
   }
 }
-
