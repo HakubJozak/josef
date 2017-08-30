@@ -6,8 +6,6 @@ import Grid       from './Grid';
 import Runner     from './Runner';
 import Console    from './Console';
 
-import Rur from './bot.png'
-
 
 class App extends React.Component {
   constructor(props) {
@@ -32,12 +30,8 @@ class App extends React.Component {
             <Grid/>
           </div>
 
-          <div className='col-md-3'>
+          <div className='col-md-4'>
             <Console/>
-          </div>
-
-          <div className='col-md-1'>
-            <img src={Rur} />
           </div>
       </div>
       </div>

@@ -17,7 +17,7 @@ class Square extends React.Component {
     }
 
     return <div className='j-grid-square'>
-      {name}
+      {thing == null ? '' : thing.jsx()}
     </div>
   }
 }
