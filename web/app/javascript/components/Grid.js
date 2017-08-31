@@ -8,6 +8,8 @@ import Pubsub from 'pubsub-js';
 class Grid extends React.Component {
   constructor (props) {
     super(props)
+
+    const robot = new RobotActor({});
     const row = Array(10).fill(null);
     const squares = Array(10).fill(null);
 
@@ -15,16 +17,14 @@ class Grid extends React.Component {
       squares[y] = new Array(10);
 
       for (var x =0; x < 10; x++) {
-        squares[y][x] = new Object({ x: x, y: y, things: new Array(0) });
+        squares[y][x] = new Object({ x: x, y: y });
       }
     }
 
-    // FIXME: get from stdlib.rb
-    const robot = new RobotActor({})
-    squares[0][0].things.push(robot);
-
     this.state = {
       squares:   squares,
+      robot:     robot,
+      things:    [ robot ],
       messages:  [],
     }
   }
@@ -47,10 +47,8 @@ class Grid extends React.Component {
   renderRow (row,y) {
     const squaresJsx = row.map( (square,x) => {
       const key = `${x}.${y}`
-      const data = this.state.squares[y][x];
-      return <Square x={x} y={y} things={data.things} key={key} />;
+      return <Square x={x} y={y} things={this.state.things} key={key} />;
     });
-
 
     return (
         <div className='j-grid-row' key={y}>

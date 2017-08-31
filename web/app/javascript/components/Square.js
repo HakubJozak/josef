@@ -1,25 +1,26 @@
 import React from 'react';
 
 
-class Square extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+export default class Square extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render () {
-    const thing = this.props.things[0];
-    var name;
-
-    if (thing) {
-      name = thing.name;
-    } else {
-      name = '';
-    }
+    // TODO: map and draw all thing lying on the square
+    
+    const things = this.props.things.map((thing) => {
+      if (thing.x == this.props.x  &&
+          thing.y == this.props.y) {
+        return thing.jsx();
+      } else {
+        return null;
+      }
+    })
 
     return <div className='j-grid-square'>
-      {thing == null ? '' : thing.jsx()}
+      {things}
     </div>
   }
 }
 
-export default Square;
