@@ -5,7 +5,7 @@ import CodeEditor from './CodeEditor';
 import Grid       from './Grid';
 import Runner     from './Runner';
 import Console    from './Console';
-
+import Playground    from './Playground';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,12 +26,8 @@ class App extends React.Component {
             <CodeEditor code={this.props.code} />
           </div>
 
-          <div className='col-md-3'>
-            <Grid/>
-          </div>
-
-          <div className='col-md-4'>
-            <Console/>
+          <div className='col-md-7'>
+            <Playground/>
           </div>
       </div>
       </div>
