@@ -7,7 +7,7 @@ export default class RobotActor  {
   constructor (props) {
     // FIXME: get from stdlib.rb
     this.x = 0;
-    this.y = 0;    
+    this.y = 0;
     this.direction = 'east';
     this.name = 'Robot';
     PubSub.subscribe('robot.update',  (msg,r) => { this.updatePosition(msg,r) } )
