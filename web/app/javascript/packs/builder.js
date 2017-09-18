@@ -20,7 +20,15 @@ import $ from 'jquery'
 
 
 $(document).ready(function() {
-  var draw = SVG('drawing'); //.size(300, 300)
-  var rect = draw.rect(100, 100).attr({ fill: '#f06' })
+  var draw = SVG('drawing').size('100%', '100%')
+  var rect = draw.rect(100, 100).attr({ fill: '#f06', rx: 10, ry: 20 })
   console.info('done');
+
+//  rect.animate(4000).attr({ fill: 'blue' })
+//  rect.animate(2000).center(200, 200)
+  rect.animate(3000).rotate(45).skew(25, 0)
+  rect.animate(3000).move(100, 100)
+
+  console.info('again');
+  
 })
