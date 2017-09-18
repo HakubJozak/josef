@@ -17,16 +17,5 @@
 //= require_tree .
 
 
-
 Opal.load('opal');
 Opal.load('opal-parser');
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-async function demo() {
-  console.log('Taking a break...');
-  await sleep(500);
-  console.log('Two second later');
-}

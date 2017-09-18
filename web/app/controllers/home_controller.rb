@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  layout false
+
   def index
     @code = """
 # Cesta kolem sveta za 39 ctvercu
@@ -7,11 +9,15 @@ prikaz robot.vpravo_vbok
   3.krat { vlevo_vbok }
 konec
 
-4.krat { 
+4.krat {
   9.krat { robot.krok }
   robot.vpravo_vbok
 }
 """
+  end
+
+  def builder
+    
   end
 
   private

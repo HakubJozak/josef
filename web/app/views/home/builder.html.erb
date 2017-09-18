@@ -6,11 +6,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application' %>
-    <%= stylesheet_pack_tag 'application' %>
+    <%= javascript_pack_tag 'builder' %>
   </head>
 
   <body>
-    <%= yield %>
+    <h1>Builder</h1>
+
+    <div class='container'>
+      <div id="drawing" class='col-md-6'>
+      </div>
+      <div class='col-md-6'>
+      </div>
+    </div>
   </body>
 </html>

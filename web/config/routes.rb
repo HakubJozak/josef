@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   # http://guides.rubyonrails.org/routing.html
 
   root to: 'home#index'
+  get '/builder', to: 'home#builder'  
 end
